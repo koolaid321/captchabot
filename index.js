@@ -16,14 +16,28 @@ client.on("guildMemberAdd", async (member) => {
 
 
     if(!channel) {
-        console.log("lol no verify channel")
+        await message.guild.createChannel('verify')
     }
 
     let vrole = member.guild.roles.cache.find((x) => x.name === "Non-Verified")
     let vrrole = member.guild.roles.cache.find((x) => x.name === "Verified")
 
     if(!vrole){
-        console.log("lol no verified role")
+        await message.guild.roles.create({
+  data: {
+    name: 'Non-Verified',
+    color: 'RANDOM',
+  },
+})
+    }
+    
+    if(!vrrole){
+        wait message.guild.roles.create({
+  data: {
+    name: 'Verified',
+    color: 'RANDOM',
+  },
+})
     }
 
     member.roles.add(vrole)
