@@ -22,23 +22,7 @@ client.on("guildMemberAdd", async (member) => {
     let vrole = member.guild.roles.cache.find((x) => x.name === "Non-Verified")
     let vrrole = member.guild.roles.cache.find((x) => x.name === "Verified")
 
-    if(!vrole){
-        await message.guild.roles.create({
-  data: {
-    name: 'Non-Verified',
-    color: 'RANDOM',
-  },
-})
-    }
     
-    if(!vrrole){
-        wait message.guild.roles.create({
-  data: {
-    name: 'Verified',
-    color: 'RANDOM',
-  },
-})
-    }
 
     member.roles.add(vrole)
     const attachment = new discord.MessageAttachment(captcha.PNGStream, "captcha.png")
