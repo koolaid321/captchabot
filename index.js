@@ -15,10 +15,6 @@ client.on("guildMemberAdd", async (member) => {
     let channel = member.guild.channels.cache.find((x) => x.name === "verify")
 
 
-    if(!channel) {
-        await message.guild.createChannel('verify')
-    }
-
     let vrole = member.guild.roles.cache.find((x) => x.name === "Non-Verified")
     let vrrole = member.guild.roles.cache.find((x) => x.name === "Verified")
 
