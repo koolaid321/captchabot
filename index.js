@@ -12,13 +12,6 @@ client.on("guildMemberAdd", async (member) => {
     let captcha = new Captcha();
 
 
-    let channel = member.guild.channels.cache.find((x) => x.name === "verify")
-
-
-    if(!channel) {
-        console.log("lol no verify channel")
-    }
-
     let vrole = member.guild.roles.cache.find((x) => x.name === "Non-Verified")
     let vrrole = member.guild.roles.cache.find((x) => x.name === "Verified")
 
@@ -28,7 +21,7 @@ client.on("guildMemberAdd", async (member) => {
 
     member.roles.add(vrole)
     const attachment = new discord.MessageAttachment(captcha.PNGStream, "captcha.png")
-    const verifycode = await channel.send(`${member.mention}**Type the following code to verify.**`, attachment)
+    const verifycode = await member.send('**Type the following code to verify.**', attachment)
     let collector = channel.createMessageCollector(
         m => m.author.id === member.id
     )
