@@ -1,7 +1,6 @@
 const discord = require('discord.js')
 const client = new discord.Client()
 
-const { TOKEN, PREFIX } = require("./config.json")
 const Captcha = require("@haileybot/captcha-generator")
 
 client.on('ready', () => {
